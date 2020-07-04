@@ -33,7 +33,7 @@ class Server
 
     protected function onOpen($server, $request)
     {
-        var_dump($server);die;
+        var_dump($request);die;
     }
 
     private function __clone(){}

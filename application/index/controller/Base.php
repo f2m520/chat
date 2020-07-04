@@ -9,8 +9,7 @@ class Base
 {
     public function __construct()
     {
-        //$server = Server::getInstance();
-        $server = new Websocket();
+        $server = Server::getInstance();
         var_dump($server);die;
     }
 }
