@@ -20,6 +20,7 @@ class Server
            'max_request' => 1000,
         ));
         $this->server->on('open', array($this, 'onOpen'));
+        $this->server->start();
     }
 
     //单例
