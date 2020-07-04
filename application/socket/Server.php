@@ -2,7 +2,6 @@
 namespace app\socket;
 
 use think\Config;
-use Workerman\Events\Swoole;
 
 class Server
 {
@@ -12,7 +11,7 @@ class Server
     private function __construct()
     {
         $config = config('socket');
-        $this->server = new swoole_webwocket_server($config['host'], $config['port']);
+        $this->server = new swoole_websocket_server($config['host'], $config['port']);
         $this->server->set(array(
             'daemonize' => 0,
            'worker_num' => 4,
