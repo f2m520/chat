@@ -11,7 +11,7 @@ class Server
     private function __construct()
     {
         $config = config('socket');
-        $this->server = new swoole_websocket_server($config['host'], $config['port']);
+        $this->server = new Swoole\WebSocket\Server($config['host'], $config['port']);
         $this->server->set(array(
             'daemonize' => 0,
            'worker_num' => 4,
