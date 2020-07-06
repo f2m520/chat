@@ -3,13 +3,13 @@ namespace app\index\controller;
 
 
 use app\socket\Server;
-use app\socket\Websocket;
+use app\socket\WsServer;
 
 class Base
 {
     public function __construct()
     {
-        $server = Server::getInstance();
+        $server = WsServer::getInstance();
         var_dump($server);die;
     }
 }
