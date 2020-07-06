@@ -1,6 +1,8 @@
 <?php
 namespace app\socket;
 
+$server = new Websocket();
+
 class Websocket
 {
     protected $server;

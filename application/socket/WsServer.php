@@ -4,6 +4,7 @@ namespace app\socket;
 
 class WsServer
 {
+    protected static $instance;
     protected $server = null;
     protected $fd = null;
     protected $frame = null;
