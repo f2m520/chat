@@ -12,7 +12,7 @@ class Websocket
         $this->server->on('open', array($this, 'onOpen'));
         $this->server->on('message', array($this, 'onMessage'));
         $this->server->on('close', array($this, 'onClose'));
-        $this->start();
+        $this->server->start();
         $this->ws_server = \app\socket\WsServer::getInstance();
     }
 
