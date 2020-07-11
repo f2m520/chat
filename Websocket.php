@@ -1,5 +1,7 @@
 <?php
 
+use app\socket\WsServer;
+
 $server = new Websocket();
 
 class Websocket
@@ -17,10 +19,8 @@ class Websocket
 
     public function onOpen($server, $request)
     {
-        var_dump($server);
-        var_dump($request);
-        \app\socket\WsServer::set('server', $server);
-        \app\socket\WsServer::set('fd', $request->fd);
+        WsServer::set('server', $server);
+        WsServer::set('fd', $request->fd);
     }
 
     public function onMessage($server, $frame)
