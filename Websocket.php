@@ -1,4 +1,5 @@
 <?php
+namespace webSocket;
 
 use app\socket\WsServer;
 
