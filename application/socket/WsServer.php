@@ -4,52 +4,20 @@ namespace app\socket;
 
 class WsServer
 {
-    protected static $instance;
-    protected $server = null;
-    protected $fd = null;
-    protected $frame = null;
+    protected static $objects;
 
-    private function __construct()
+    public static function set($alias, $object)
     {
+        self::$objects[$alias] = $object;
     }
 
-    public static function getInstance(){
-        if(!(self::$instance instanceof self)){
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-    public function getServer()
+    public static function get($alias)
     {
-        return $this->server;
+        return self::$objects[$alias];
     }
 
-    public function setServer($server)
+    public static function _unset($alias)
     {
-        $this->server = $server;
+        unset(self::$objects[$alias]);
     }
-
-    public function getFd()
-    {
-        return $this->fd;
-    }
-
-    public function setFd($fd)
-    {
-        $this->fd = $fd;
-    }
-
-    public function getFrame()
-    {
-        return $this->frame;
-    }
-
-    public function setFrame($frame)
-    {
-        $this->frame = $frame;
-    }
-
-    private function __clone(){}
 }

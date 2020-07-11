@@ -9,7 +9,7 @@ class Base
 {
     public function __construct()
     {
-        $server = WsServer::getInstance();
-        var_dump($server);die;
+        $fd = WsServer::get('fd');
+        var_dump($fd);die;
     }
 }

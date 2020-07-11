@@ -13,20 +13,19 @@ class Websocket
         $this->server->on('message', array($this, 'onMessage'));
         $this->server->on('close', array($this, 'onClose'));
         $this->server->start();
-        $this->ws_server = \app\socket\WsServer::getInstance();
     }
 
     public function onOpen($server, $request)
     {
         var_dump($server);
         var_dump($request);
-        $this->ws_server->setServer($server);
-        $this->ws_server->setFd($request->fd);
+        \app\socket\WsServer::set('server', $server);
+        \app\socket\WsServer::set('fd', $request->fd);
     }
 
     public function onMessage($server, $frame)
     {
-        $this->ws_server->setFrame($frame);
+        $server->push($frame->fd, 'this is server');
     }
 
     public function onClose($server, $fd)
